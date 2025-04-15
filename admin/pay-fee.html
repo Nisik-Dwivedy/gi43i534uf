@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fees Payment</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" type="text/css" href="assets/css/assets.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/typography.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/shortcodes/shortcodes.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
+	<link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body class="ttr-opened-sidebar ttr-pinned-sidebar">
+	<?php include("header.php"); ?>
+	<?php include("sidebar.php"); ?>
+
+	<main class="ttr-wrapper">
+		<div class="container-fluid">
+			<div class="db-breadcrumb">
+				<h4 class="breadcrumb-title"><i class="bi bi-credit-card"></i> Fees Payment</h4>
+				<ul class="db-breadcrumb-list">
+					<li><a href="dashboard.html"><i class="fa fa-home"></i>Home</a></li>
+					<li>Fees</li>
+				</ul>
+			</div>	
+
+			<!-- Payment Form -->
+			<div class="row">
+				<div class="col-lg-12 m-b30">
+					<div class="widget-box">
+						<div class="wc-title">
+							<h4><i class="bi bi-person-lines-fill"></i> Pay Student Fees</h4>
+						</div>
+						<div class="widget-inner">
+							<form action="pay-fee.php" method="POST">
+								<div class="row">
+									<div class="form-group col-6">
+										<label><i class="bi bi-person"></i> Student Name</label>
+										<input type="text" class="form-control" name="student_name" required>
+									</div>
+									<div class="form-group col-6">
+										<label><i class="bi bi-grid-3x3-gap"></i> Class</label>
+										<input type="text" class="form-control" name="class" required>
+									</div>
+									<div class="form-group col-6">
+										<label><i class="bi bi-calendar3"></i> Month</label>
+										<select class="form-control" name="month" required>
+											<option value="">Select Month</option>
+											<option>January</option><option>February</option><option>March</option>
+											<option>April</option><option>May</option><option>June</option>
+											<option>July</option><option>August</option><option>September</option>
+											<option>October</option><option>November</option><option>December</option>
+										</select>
+									</div>
+									<div class="form-group col-6">
+										<label><i class="bi bi-cash-coin"></i> Amount</label>
+										<input type="number" class="form-control" name="amount" required>
+									</div>
+									<div class="form-group col-6">
+										<label><i class="bi bi-wallet2"></i> Payment Method</label>
+										<select class="form-control" name="payment_method" id="paymentMethod" required>
+											<option value="">Select Method</option>
+											<option value="Cash">Cash</option>
+											<option value="UPI">UPI</option>
+											<option value="Card">Debit/Credit Card</option>
+										</select>
+									</div>
+
+									<!-- Card Details Section (hidden by default) -->
+									<div id="cardDetails" style="display:none;" class="col-12">
+										<div class="row">
+											<div class="form-group col-md-4">
+												<label><i class="bi bi-credit-card-2-front"></i> Card Number</label>
+												<input type="text" class="form-control" name="card_number" placeholder="1234 5678 9012 3456">
+											</div>
+											<div class="form-group col-md-4">
+												<label><i class="bi bi-calendar2"></i> Expiry Date</label>
+												<input type="text" class="form-control" name="expiry_date" placeholder="MM/YY">
+											</div>
+											<div class="form-group col-md-4">
+												<label><i class="bi bi-shield-lock"></i> CVV</label>
+												<input type="text" class="form-control" name="cvv" placeholder="123">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group col-12">
+										<label><i class="bi bi-chat-left-dots"></i> Remarks (optional)</label>
+										<textarea class="form-control" name="remarks" rows="3"></textarea>
+									</div>
+									<div class="col-12">
+										<button type="submit" class="btn btn-primary"><i class="bi bi-cash-stack"></i> Pay Now</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Invoice Section -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="widget-box">
+						<div class="wc-title">
+							<h4><i class="bi bi-receipt"></i> Download Invoice</h4>
+						</div>
+						<div class="widget-inner">
+							<form action="generate-invoice.php" method="GET">
+								<div class="row">
+									<div class="form-group col-8">
+										<label><i class="bi bi-search"></i> Enter Student Name or Invoice ID</label>
+										<input type="text" class="form-control" name="query" required>
+									</div>
+									<div class="col-4">
+										<button type="submit" class="btn btn-success mt-4"><i class="bi bi-download"></i> Download</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End -->
+		</div>
+	</main>
+	<div class="ttr-overlay"></div>
+
+	<!-- JS FILES -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/vendors/bootstrap/js/popper.min.js"></script>
+	<script src="assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/functions.js"></script>
+
+	<!-- Show/Hide Card Details Script -->
+	<script>
+		document.getElementById("paymentMethod").addEventListener("change", function () {
+			var cardDetails = document.getElementById("cardDetails");
+			if (this.value === "Card") {
+				cardDetails.style.display = "block";
+			} else {
+				cardDetails.style.display = "none";
+			}
+		});
+	</script>
+</body>
+</html>

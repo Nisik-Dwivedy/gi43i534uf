@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- FAVICONS ICON ============================================= -->
+    <link rel="icon" href="../error-404.html" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+
+    <!-- PAGE TITLE HERE ============================================= -->
+    <title>Fees Management</title>
+
+    <!-- MOBILE SPECIFIC ============================================= -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- All PLUGINS CSS ============================================= -->
+    <link rel="stylesheet" type="text/css" href="assets/css/assets.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendors/calendar/fullcalendar.css">
+
+    <!-- TYPOGRAPHY ============================================= -->
+    <link rel="stylesheet" type="text/css" href="assets/css/typography.css">
+    
+    <!-- STYLESHEETS ============================================= -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
+    <link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
+</head>
+
+<body class="ttr-opened-sidebar ttr-pinned-sidebar">
+    <!-- header start -->
+    <header class="ttr-header">
+        <div class="ttr-header-wrapper">
+            <!-- sidebar menu toggler start -->
+            <div class="ttr-toggle-sidebar ttr-material-button">
+                <i class="ti-close ttr-open-icon"></i>
+                <i class="ti-menu ttr-close-icon"></i>
+            </div>
+            <!--sidebar menu toggler end -->
+            <!-- logo start -->
+        
+            <!-- logo end -->
+            <div class="ttr-header-menu">
+                <!-- header left menu start -->
+                <ul class="ttr-header-navigation">
+                    <li><a href="../index.html" class="ttr-material-button ttr-submenu-toggle">HOME</a></li>
+                </ul>
+                <!-- header left menu end -->
+            </div>
+            <div class="ttr-header-right ttr-with-seperator">
+                <ul class="ttr-header-navigation">
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- Left sidebar menu start -->
+    <div class="ttr-sidebar">
+        <div class="ttr-sidebar-wrapper content-scroll">
+            <div class="ttr-sidebar-logo">
+                <a href="#"><img alt="" src="main-logo.png" width="40" height="27"></a>
+                <div class="ttr-sidebar-toggle-button">
+                    <i class="ti-arrow-left"></i>
+                </div>
+            </div>
+            <!-- sidebar menu start -->
+            <nav class="ttr-sidebar-navi">
+                <ul>
+                    <li><a href="dashboard.html" class="ttr-material-button"><span class="ttr-icon"><i class="ti-home"></i></span><span class="ttr-label">Dashboard</span></a></li>
+
+                    <li><a href="Add-students.php" class="ttr-material-button"><span class="ttr-icon"><i class="ti-user"></i></span><span class="ttr-label">Add Students</span></a></li>
+
+                    <li><a href="attendance.php" class="ttr-material-button"><span class="ttr-icon"><i class="ti-check-box"></i></span><span class="ttr-label">Attendance</span></a></li>
+
+                    <li><a href="fees-management.php" class="ttr-material-button"><span class="ttr-icon"><i class="ti-credit-card"></i></span><span class="ttr-label">Fees Management</span></a></li>
+                    <li class="ttr-seperate"></li>
+                </ul>
+            </nav>
+            <!-- sidebar menu end -->
+        </div>
+    </div>
+    <!-- Left sidebar menu end -->
+
+    <!-- Main container start -->
+    <main class="ttr-wrapper">
+        <div class="container-fluid">
+            <div class="db-breadcrumb">
+                <h4 class="breadcrumb-title">Fees Management</h4>
+                <ul class="db-breadcrumb-list">
+                    <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+                    <li>Fees Management</li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <!-- Fees Form -->
+                <form action="fees.php" method="post">
+                    <div class="col-lg-12 m-b30">
+                        <div class="widget-box">
+                            <div class="widget-inner">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h3>Student Fee Details</h3>
+                                    </div>
+                                    
+                                    <!-- Student Selection -->
+                                    <div class="form-group col-6">
+                                        <label class="col-form-label">Student ID</label>
+                                        <div>
+                                            <input class="form-control" type="text" value="" name="student_id" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label class="col-form-label">Student Name</label>
+                                        <div>
+                                            <input class="form-control" type="text" value="" name="student_name" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Fee Details -->
+                                    <div class="form-group col-6">
+                                        <label class="col-form-label">Fee Amount</label>
+                                        <div>
+                                            <input class="form-control" type="number" value="" name="fee_amount" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label class="col-form-label">Fee Status</label>
+                                        <div>
+                                            <select class="form-control" name="fee_status" required>
+                                                <option value="Paid">Paid</option>
+                                                <option value="Pending">Pending</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label class="col-form-label">Payment Date</label>
+                                        <div>
+                                            <input class="form-control" type="date" value="" name="payment_date" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Submit Button -->
+                                    <div class="col-12">
+                                        <button type="submit">Save Fee Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <!-- Main container end -->
+
+    <!-- External JavaScripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/vendors/bootstrap/js/popper.min.js"></script>
+    <script src="assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/functions.js"></script>
+</body>
+
+</html>
